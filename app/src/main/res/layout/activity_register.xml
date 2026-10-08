@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pikachu">
+
+    <!-- Capa oscura semitransparente -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#701A202C" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginTop="32dp"
+                android:src="@mipmap/ic_launcher"
+                android:contentDescription="Logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Crear Nueva Cuenta"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Tarjeta flotante para el Registro -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@android:drawable/dialog_holo_light_frame"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Campo Correo -->
+                <EditText
+                    android:id="@+id/etRegisterEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:hint="Correo electrónico"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="12dp"
+                    android:textSize="14sp" />
+
+                <!-- Campo Contraseña -->
+                <EditText
+                    android:id="@+id/etRegisterPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:hint="Contraseña"
+                    android:inputType="textPassword"
+                    android:paddingStart="12dp"
+                    android:textSize="14sp" />
+
+                <!-- Botón Registrarse -->
+                <Button
+                    android:id="@+id/btnRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="12dp"
+                    android:backgroundTint="#3182CE"
+                    android:text="Registrarse"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <!-- Enlace para volver al Login si ya tiene cuenta -->
+                <TextView
+                    android:id="@+id/tvGoToLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="¿Ya tienes cuenta? Inicia Sesión"
+                    android:textColor="#3182CE"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:padding="8dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

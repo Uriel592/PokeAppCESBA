@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pokedex_bg">
+
+    <!-- Botón Regresar compacto en la esquina superior derecha -->
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:background="#2D3748"
+        android:padding="6dp"
+        android:src="@android:drawable/ic_media_previous"
+        app:tint="#ECC94B"
+        android:contentDescription="Regresar"
+        android:elevation="6dp" />
+
+    <!-- Contenedor Principal con margen superior mayor para respetar el logo "PokéDex" -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="34dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginBottom="10dp"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <!-- Buscador Estilo Menú Clásico -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_search"
+                    android:hint="Ej. Charizard o 6"
+                    android:inputType="text"
+                    android:paddingHorizontal="14dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#A0AEC0"
+                    android:textSize="13sp" />
+
+                <Button
+                    android:id="@+id/btnSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="#9B2C2C"
+                    android:text="BUSCAR"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Selector de Formas en Cuadrícula 2x2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="6dp">
+
+                    <Button
+                        android:id="@+id/btnFormBase"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="4dp"
+                        android:backgroundTint="#4A5568"
+                        android:text="Base"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnFormRegional"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="4dp"
+                        android:backgroundTint="#2B6CB0"
+                        android:text="Regional"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnFormMega"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="4dp"
+                        android:backgroundTint="#9B2C2C"
+                        android:text="Mega X/Y"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnFormGmax"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="4dp"
+                        android:backgroundTint="#D69E2E"
+                        android:text="Gigamax"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Tarjeta Principal del Pokémon -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="#E2E8F0"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp">
+
+                        <Button
+                            android:id="@+id/btnPrevPokemon"
+                            android:layout_width="52dp"
+                            android:layout_height="36dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:backgroundTint="#2B6CB0"
+                            android:text="◀"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/btnPrevPokemon"
+                            android:layout_toStartOf="@id/containerRight"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:orientation="vertical"
+                            android:gravity="center_horizontal">
+
+                            <TextView
+                                android:id="@+id/tvPokemonId"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="#001"
+                                android:textColor="#4A5568"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvPokemonName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="BULBASAUR"
+                                android:textColor="#1A202C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:maxLines="1"
+                                android:ellipsize="end" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/containerRight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <Button
+                                android:id="@+id/btnNextPokemon"
+                                android:layout_width="52dp"
+                                android:layout_height="36dp"
+                                android:layout_marginEnd="4dp"
+                                android:backgroundTint="#2B6CB0"
+                                android:text="▶"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:id="@+id/ivFavorite"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@android:drawable/btn_star_big_off"
+                                app:tint="#D69E2E"
+                                android:contentDescription="Favorito" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tvPokemonType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:background="#CBD5E0"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="4dp"
+                        android:text="TIPO"
+                        android:textColor="#2D3748"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginBottom="8dp">
+
+                        <View
+                            android:layout_width="155dp"
+                            android:layout_height="155dp"
+                            android:layout_centerInParent="true"
+                            android:background="#CBD5E0" />
+
+                        <ImageView
+                            android:id="@+id/btnPrev"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:src="@android:drawable/ic_media_previous"
+                            app:tint="#9B2C2C"
+                            android:contentDescription="Modo Normal/Shiny" />
+
+                        <ImageView
+                            android:id="@+id/ivPokemonImage"
+                            android:layout_width="160dp"
+                            android:layout_height="160dp"
+                            android:layout_centerInParent="true"
+                            android:scaleType="fitCenter"
+                            android:src="@android:drawable/ic_menu_gallery"
+                            android:contentDescription="Sprite" />
+
+                        <ImageView
+                            android:id="@+id/btnNext"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@android:drawable/ic_media_next"
+                            app:tint="#9B2C2C"
+                            android:contentDescription="Modo Normal/Shiny" />
+                    </RelativeLayout>
+
+                    <Button
+                        android:id="@+id/btnCry"
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp"
+                        android:backgroundTint="#9B2C2C"
+                        android:text="▶ ESCUCHAR GRITO"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Tarjeta de Estadísticas Base -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="#E2E8F0"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="ESTADÍSTICAS"
+                        android:textColor="#9B2C2C"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="4dp" android:gravity="center_vertical" android:orientation="horizontal">
+                        <TextView android:layout_width="50dp" android:layout_height="wrap_content" android:text="HP" android:textColor="#2D3748" android:textSize="11sp" android:textStyle="bold"/>
+                        <TextView android:id="@+id/tvHp" android:layout_width="35dp" android:layout_height="wrap_content" android:text="45" android:textColor="#22543D" android:textSize="11sp" android:textStyle="bold"/>
+                        <ProgressBar android:id="@+id/pbHp" style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_height="8dp" android:layout_weight="1" android:progress="45" android:progressTint="#38A169"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="4dp" android:gravity="center_vertical" android:orientation="horizontal">
+                        <TextView android:layout_width="50dp" android:layout_height="wrap_content" android:text="ATK" android:textColor="#2D3748" android:textSize="11sp" android:textStyle="bold"/>
+                        <TextView android:id="@+id/tvAtk" android:layout_width="35dp" android:layout_height="wrap_content" android:text="49" android:textColor="#742A2A" android:textSize="11sp" android:textStyle="bold"/>
+                        <ProgressBar android:id="@+id/pbAtk" style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_height="8dp" android:layout_weight="1" android:progress="49" android:progressTint="#E53E3E"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="4dp" android:gravity="center_vertical" android:orientation="horizontal">
+                        <TextView android:layout_width="50dp" android:layout_height="wrap_content" android:text="DEF" android:textColor="#2D3748" android:textSize="11sp" android:textStyle="bold"/>
+                        <TextView android:id="@+id/tvDef" android:layout_width="35dp" android:layout_height="wrap_content" android:text="49" android:textColor="#2B6CB0" android:textSize="11sp" android:textStyle="bold"/>
+                        <ProgressBar android:id="@+id/pbDef" style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_height="8dp" android:layout_weight="1" android:progress="49" android:progressTint="#3182CE"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                        <TextView android:layout_width="50dp" android:layout_height="wrap_content" android:text="VEL" android:textColor="#2D3748" android:textSize="11sp" android:textStyle="bold"/>
+                        <TextView android:id="@+id/tvSpeed" android:layout_width="35dp" android:layout_height="wrap_content" android:text="45" android:textColor="#234E52" android:textSize="11sp" android:textStyle="bold"/>
+                        <ProgressBar android:id="@+id/pbSpeed" style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_height="8dp" android:layout_weight="1" android:progress="45" android:progressTint="#319795"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Tarjeta de Pestañas -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#E2E8F0"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tabDescription"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="DATOS"
+                            android:textColor="#9B2C2C"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tabMoves"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="MOVIMIENTOS"
+                            android:textColor="#718096"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tabEvolution"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="EVOLUCIÓN"
+                            android:textColor="#718096"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="#CBD5E0" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="90dp">
+
+                        <TextView
+                            android:id="@+id/tvDescriptionContent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Cargando descripción..."
+                            android:textColor="#1A202C"
+                            android:textSize="12sp"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/tvMovesContent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Cargando movimientos..."
+                            android:textColor="#1A202C"
+                            android:textSize="12sp"
+                            android:visibility="gone" />
+
+                        <LinearLayout
+                            android:id="@+id/layoutEvolutionContent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+                                <ImageView
+                                    android:id="@+id/ivEvo1"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:scaleType="fitCenter"
+                                    android:src="@android:drawable/ic_menu_gallery"
+                                    android:contentDescription="Evo 1" />
+                                <TextView
+                                    android:id="@+id/tvEvo1Name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="---"
+                                    android:textColor="#1A202C"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="▶"
+                                android:textColor="#4A5568"
+                                android:textSize="12sp"
+                                android:layout_marginHorizontal="4dp"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+                                <ImageView
+                                    android:id="@+id/ivEvo2"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:scaleType="fitCenter"
+                                    android:src="@android:drawable/ic_menu_gallery"
+                                    android:contentDescription="Evo 2" />
+                                <TextView
+                                    android:id="@+id/tvEvo2Name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="---"
+                                    android:textColor="#1A202C"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="▶"
+                                android:textColor="#4A5568"
+                                android:textSize="12sp"
+                                android:layout_marginHorizontal="4dp"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+                                <ImageView
+                                    android:id="@+id/ivEvo3"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:scaleType="fitCenter"
+                                    android:src="@android:drawable/ic_menu_gallery"
+                                    android:contentDescription="Evo 3" />
+                                <TextView
+                                    android:id="@+id/tvEvo3Name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="---"
+                                    android:textColor="#1A202C"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#181818">
+
+    <!-- Fondo de arena -->
+
+    <!-- ================= DATOS DEL RIVAL (ARRIBA IZQUIERDA) ================= -->
+
+    <!-- Sprite del Rival (Arriba Derecha) -->
+    <ImageView
+        android:id="@+id/ivBattleArena"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/fondo_batalla_gba"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <LinearLayout
+        android:id="@+id/layoutEnemyStats"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="60dp"
+        android:background="@android:color/transparent"
+        android:orientation="vertical"
+        android:padding="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvEnemyName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="RIVAL"
+                android:textColor="#303030"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvEnemyLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Lv50"
+                android:textColor="#303030"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PS"
+                android:textColor="#D0A000"
+                android:textSize="9sp"
+                android:textStyle="bold|italic" />
+
+            <ProgressBar
+                android:id="@+id/pbEnemyHp"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginStart="6dp"
+                android:progress="100"
+                android:progressTint="#50C878" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivEnemySprite"
+        android:layout_width="135dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="40dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ================= DATOS DEL JUGADOR (ABAJO DERECHA) ================= -->
+
+    <!-- Sprite del Jugador (Abajo Izquierda) -->
+    <LinearLayout
+        android:id="@+id/layoutPlayerStats"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="52dp"
+        android:background="@android:color/transparent"
+        android:orientation="vertical"
+        android:padding="2dp"
+        app:layout_constraintBottom_toTopOf="@id/layoutBottomPanel"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvPlayerName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="JUGADOR"
+                android:textColor="#303030"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPlayerLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Lv50"
+                android:textColor="#303030"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PS"
+                android:textColor="#D0A000"
+                android:textSize="9sp"
+                android:textStyle="bold|italic" />
+
+            <ProgressBar
+                android:id="@+id/pbPlayerHp"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginStart="6dp"
+                android:progress="100"
+                android:progressTint="#50C878" />
+        </LinearLayout>
+
+        <!-- Valores numéricos de vida alineados simétricamente -->
+        <TextView
+            android:id="@+id/tvPlayerHpValues"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="2dp"
+            android:text="100 / 100"
+            android:textColor="#303030"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            android:id="@+id/pbPlayerExp"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginTop="1dp"
+            android:progress="60"
+            android:progressTint="#3898F8" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivPlayerSprite"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="8dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@id/layoutBottomPanel"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- ================= PANEL INFERIOR DE TEXTO ================= -->
+    <FrameLayout
+        android:id="@+id/layoutBottomPanel"
+        android:layout_width="0dp"
+        android:layout_height="75dp"
+        android:background="#F8F8F8"
+        android:elevation="10dp"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tvBattleLog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="¡El combate comenzará en breve!"
+            android:textColor="#303030"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Fondo temático -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_battle_selection" />
+
+    <!-- Capa oscura semitransparente -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CC0F172A" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:shadowColor="#000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="4"
+                android:text="Selección de Combate"
+                android:textColor="#F6E05E"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <!-- ================= SECCIÓN RIVAL (ARRIBA) ================= -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Pokémon Rival (ID o Nombre):"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchEnemyShiny"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shiny ✨ "
+                    android:textColor="#F6E05E"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etEnemyPokemon"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:background="#D92D3748"
+                    android:hint="Ej. 3 o venusaur"
+                    android:paddingHorizontal="10dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#A0AEC0"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/ivEnemyPreview"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_marginStart="10dp"
+                    android:background="#B31A202C"
+                    android:padding="4dp"
+                    android:scaleType="fitCenter"
+                    android:src="@android:drawable/ic_menu_gallery" />
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spinnerEnemyForm"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="24dp"
+                android:background="#D92D3748" />
+
+            <!-- ================= SECCIÓN TU POKÉMON (ABAJO) ================= -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tu Pokémon (ID o Nombre):"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchPlayerShiny"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shiny ✨ "
+                    android:textColor="#F6E05E"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etPlayerPokemon"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:background="#D92D3748"
+                    android:hint="Ej. 6 o charizard"
+                    android:paddingHorizontal="10dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#A0AEC0"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/ivPlayerPreview"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_marginStart="10dp"
+                    android:background="#B31A202C"
+                    android:padding="4dp"
+                    android:scaleType="fitCenter"
+                    android:src="@android:drawable/ic_menu_gallery" />
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spinnerPlayerForm"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="28dp"
+                android:background="#D92D3748" />
+
+            <!-- Botón para Iniciar Batalla Automática -->
+            <Button
+                android:id="@+id/btnStartBattle"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:backgroundTint="#E53E3E"
+                android:text="¡A LUCHAR!"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Botón para Abrir Pantalla de Historial -->
+            <Button
+                android:id="@+id/btnVerHistorialPantalla"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="#4A5568"
+                android:text="📜 VER HISTORIAL DE COMBATES"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
